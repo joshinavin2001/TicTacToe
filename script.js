@@ -3,13 +3,31 @@ let music=new Audio("music.mp3")
 let GameOver = new Audio("gameover.mp3")
 let audioTurn=new Audio("ting.mp3")
  let turn="X"
+ let isgameover=false
 //Function to change Turn//
 const ChangeTurn=()=>{
     return turn==="X"?"0":"X"
 }
 //Function to Win Game //
 const WinGame=()=>{
+    let boxText=document.getElementsByClassName("box_text")
+   let winnigCondition=[
+      [0,1,2],
+      [3,4,5],
+      [6,7,8],
+      [0,3,6],
+      [1,4,7],
+      [2,5,8],
+      [0,4,8],
+      [2,4,6],
+   ]
+   winnigCondition.forEach(e=>{
+    if((boxText[e[0]].innerText===boxText[e[1]].innerText)&&(boxText[e[2]].innerText===boxText[e[1]].innerText)&&boxText[e[0]].innerText!==""){
 
+         document.querySelector(".info").innerText=boxText[e[0]].innerText+ " won"
+         isgameover=true
+    }
+   })
 }
 // Game Logic //
  let boxes=document.getElementsByClassName("box")
@@ -22,7 +40,11 @@ const WinGame=()=>{
             turn=ChangeTurn()
             audioTurn.play()
             WinGame()
+           if(!isgameover){
+            // console.log(`${turn}is winer`)
             info.innerText="Turn For "+turn
+           }
+           
         }
-    })
+    })  
  })

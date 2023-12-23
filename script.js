@@ -11,6 +11,7 @@ const ChangeTurn=()=>{
 //Function to Win Game //
 const WinGame=()=>{
     let boxText=document.getElementsByClassName("box_text")
+    let image=document.querySelector(".image img")
    let winnigCondition=[
       [0,1,2],
       [3,4,5],
@@ -26,6 +27,9 @@ const WinGame=()=>{
 
          document.querySelector(".info").innerText=boxText[e[0]].innerText+ " won"
          isgameover=true
+         image.style.width="45%"
+        //  image.style.display="block"
+       
     }
    })
 }
@@ -47,4 +51,30 @@ const WinGame=()=>{
            
         }
     })  
+ })
+
+ //reset game //
+ let boxText=document.getElementsByClassName("box_text")
+//  let boxtext=document.getElementsByClassName("box_text")
+ let btn=document.querySelector(".btn")
+ let image=document.querySelector(".image img")
+ btn.addEventListener("click",function(){
+    Array.from(boxText).forEach(element=>{
+      element.innerText=""
+
+    })
+    if(turn==="0"){
+       
+        info.innerText="Turn For 0 "
+    }else{
+       
+        info.innerText="Turn For X "
+    }
+    // info.innerText="Turn For X "
+    // boxText.style.display="none"
+    image.style.width="0%"
+    
+    
+   
+   
  })

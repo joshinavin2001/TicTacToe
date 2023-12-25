@@ -45,12 +45,14 @@ Array.from(boxes).forEach((elem) => {
   elem.addEventListener("click", () => {
     if (boxText.innerText == "") {
       boxText.innerText = turn;
+    
       turn = ChangeTurn();
       audioTurn.play();
       WinGame();
       if (!isgameover) {
         // console.log(`${turn}is winer`)
         info.innerText = "Turn For " + turn;
+        
       }
     }
   });

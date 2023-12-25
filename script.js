@@ -28,16 +28,13 @@ const WinGame = () => {
       boxText[e[2]].innerText === boxText[e[1]].innerText &&
       boxText[e[0]].innerText !== ""
     ) {
-      // document.querySelector(".info").innerText =
-      //   boxText[e[0]].innerText + " won";
-      info.innerText =boxText[e[0]].innerText + " won";
+      info.innerText = boxText[e[0]].innerText + " WON";
+      info.style.color = "black";
       isgameover = true;
       image.style.width = "45%";
-      boxText[e[0]].style.color="green"
-      boxText[e[1]].style.color="green"
-      boxText[e[2]].style.color="green"
-      // document.querySelector(".line").style.transform=`translate(${e[3]}vw,${e[4]}vw)rotate(${e[5]}deg)`
-     
+      boxText[e[0]].style.color = "green";
+      boxText[e[1]].style.color = "green";
+      boxText[e[2]].style.color = "green";
     }
   });
 };
@@ -49,14 +46,12 @@ Array.from(boxes).forEach((elem) => {
   elem.addEventListener("click", () => {
     if (boxText.innerText == "") {
       boxText.innerText = turn;
-    
+
       turn = ChangeTurn();
       audioTurn.play();
       WinGame();
       if (!isgameover) {
-        // console.log(`${turn}is winer`)
         info.innerText = "Turn For " + turn;
-        
       }
     }
   });
@@ -71,12 +66,10 @@ btn.addEventListener("click", function () {
   Array.from(boxText).forEach((element) => {
     element.innerText = "";
     isgameover = false;
-    element.style.color="red"
+    element.style.color = "red";
     info.innerText = "Turn For " + turn;
-   
   });
   image.style.width = "0%";
 
-  boxText.style.color="red"
- 
+  boxText.style.color = "red";
 });

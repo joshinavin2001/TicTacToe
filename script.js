@@ -28,11 +28,12 @@ const WinGame = () => {
       boxText[e[2]].innerText === boxText[e[1]].innerText &&
       boxText[e[0]].innerText !== ""
     ) {
-      document.querySelector(".info").innerText =
-        boxText[e[0]].innerText + " won";
+      // document.querySelector(".info").innerText =
+      //   boxText[e[0]].innerText + " won";
+      info.innerText =boxText[e[0]].innerText + " won";
       isgameover = true;
       image.style.width = "45%";
-      //  image.style.display="block"
+     
     }
   });
 };
